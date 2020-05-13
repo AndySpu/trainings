@@ -7,4 +7,8 @@ public class BreakCamelCase {
 		return input.replaceAll(splitByCapitalLetter, " $0");
 	}
 
+	public static String camelCaseBestPractices(String input) {
+		return input.replaceAll("([A-Z])", " $1");
+	}
+
 }
