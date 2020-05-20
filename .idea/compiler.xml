@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="codewars" target="1.5" />
+      <module name="codewars" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
