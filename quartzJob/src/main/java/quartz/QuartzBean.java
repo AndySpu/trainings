@@ -6,12 +6,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import quartz.jobs.HelloJob;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import java.io.Serializable;
 import java.util.Calendar;
 
 import static org.quartz.JobBuilder.newJob;
 
+@ApplicationScoped
 public class QuartzBean implements Serializable {
+
+    @Inject
+    CdiJobFactory jobFactory;
 
     final Logger logger = LoggerFactory.getLogger(QuartzBean.class);
 
@@ -28,6 +34,7 @@ public class QuartzBean implements Serializable {
         try {
             SchedulerFactory sf = new StdSchedulerFactory();
             Scheduler scheduler = sf.getScheduler();
+            scheduler.setJobFactory(jobFactory);
             scheduler.start();
 
             scheduler.scheduleJob(job1, trigger);
@@ -51,11 +58,11 @@ public class QuartzBean implements Serializable {
         int minute = now.get(Calendar.MINUTE);
         int second = now.get(Calendar.SECOND);
 
-        logger.info("Current time {}:{}:{}", hour, minute, second);
+        logger.info("======================================== Current time {}:{}:{}", hour, minute, second);
 
         return TriggerBuilder.newTrigger()
                 .withIdentity("Trigger", "QuartzBean")
-                .startAt(DateBuilder.todayAt(hour, minute + 1, 0))
+                .startAt(DateBuilder.todayAt(hour, minute, second + 2))
                 .withSchedule(CronScheduleBuilder.cronSchedule("0/10 * * * * ?"))
                 .build();
     }

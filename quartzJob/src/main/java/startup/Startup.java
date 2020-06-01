@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import quartz.QuartzBean;
 
+import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +19,6 @@ public class Startup extends HttpServlet {
     @Override
     public void init() throws ServletException {
         logger.info("===================== Startup servlet was started ============================");
-
         quartzBean.startTimer();
     }
 }
