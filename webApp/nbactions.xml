@@ -8,4 +8,49 @@
                 <goal>install</goal>
             </goals>
         </action>
+        <action>
+            <actionName>CUSTOM-arquillian-weld-ee-embedded clean install</actionName>
+            <displayName>arquillian-weld-ee-embedded clean install</displayName>
+            <goals>
+                <goal>clean</goal>
+                <goal>install</goal>
+            </goals>
+            <activatedProfiles>
+                <activatedProfile>arquillian-weld-ee-embedded</activatedProfile>
+            </activatedProfiles>
+        </action>
+        <action>
+            <actionName>CUSTOM-arquillian-wildfly-managed clean install</actionName>
+            <displayName>arquillian-wildfly-managed clean install</displayName>
+            <goals>
+                <goal>clean</goal>
+                <goal>install</goal>
+            </goals>
+            <activatedProfiles>
+                <activatedProfile>arquillian-wildfly-managed</activatedProfile>
+            </activatedProfiles>
+        </action>
+        <action>
+            <actionName>CUSTOM-BasketTest</actionName>
+            <displayName>BasketTest</displayName>
+            <goals>
+                <goal>test</goal>
+            </goals>
+            <properties>
+                <test>BasketTest</test>
+            </properties>
+            <activatedProfiles>
+                <activatedProfile>arquillian-wildfly-managed</activatedProfile>
+            </activatedProfiles>
+        </action>
+        <action>
+            <actionName>CUSTOM-test-wildfly-managed test</actionName>
+            <displayName>test-wildfly-managed test</displayName>
+            <goals>
+                <goal>test</goal>
+            </goals>
+            <activatedProfiles>
+                <activatedProfile>test-wildfly-managed</activatedProfile>
+            </activatedProfiles>
+        </action>
     </actions>

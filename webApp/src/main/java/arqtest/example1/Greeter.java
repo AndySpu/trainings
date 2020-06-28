@@ -1,11 +1,11 @@
-package arqtest;
+package arqtest.example1;
 
 import java.io.PrintStream;
 import javax.inject.Inject;
 
 public class Greeter {
     
-    private PhraseBuilder phraseBuilder;
+    private final PhraseBuilder phraseBuilder;
 
     @Inject
     public Greeter(PhraseBuilder phraseBuilder) {

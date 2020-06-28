@@ -1,4 +1,4 @@
-package arqtest;
+package arqtest.example1;
 
 import java.text.MessageFormat;
 import java.util.HashMap;
